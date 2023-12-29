@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void navigate () {
     Future.delayed(const Duration(seconds: 3) , (){
       Navigator.push(context, MaterialPageRoute(builder: (_){
-        return const OnBoardingScreen();
+        return OnBoardingScreen();
       }));
     } );
   }
@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: AppColors.backGroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
