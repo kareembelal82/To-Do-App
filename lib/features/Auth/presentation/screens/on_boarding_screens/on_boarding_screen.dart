@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:to_do_app/core/utils/colors.dart';
 import 'package:to_do_app/core/utils/strings.dart';
@@ -14,7 +13,6 @@ class OnBoardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backGroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24 , vertical: 12),
@@ -32,12 +30,9 @@ class OnBoardingScreen extends StatelessWidget {
                   return const HomePage() ;
                 } )) ;
               },
-              child: Text(AppStrings.skip , style: GoogleFonts.lato(
-                color: AppColors.lowOpacityText,
-                fontSize: 16,
-                ),     
+              child: Text(AppStrings.skip , style: Theme.of(context).textTheme.displaySmall
               ),
-            ) : const SizedBox(height: 24,)
+            ) : const SizedBox(height: 48,)
           ),
           const SizedBox(height: 16,),
           //image
@@ -57,18 +52,11 @@ class OnBoardingScreen extends StatelessWidget {
             ),
           const SizedBox(height: 50,),
           //title
-          Text(OnBoardingModel.onBoardingScreenList[index].title , style: GoogleFonts.lato(
-            color: AppColors.white,
-            fontSize: 32,
-            fontWeight: FontWeight.w700
-            ),  
+          Text(OnBoardingModel.onBoardingScreenList[index].title , style: Theme.of(context).textTheme.displayLarge
           ),
           const SizedBox(height: 42,),            
           //subtitle
-          Text(OnBoardingModel.onBoardingScreenList[index].subTitle , style: GoogleFonts.lato(
-            color: AppColors.white,
-            fontSize: 16,
-            ),  
+          Text(OnBoardingModel.onBoardingScreenList[index].subTitle , style: Theme.of(context).textTheme.displayMedium  
           ),
           const SizedBox(height: 90,),
                         //row
@@ -79,10 +67,7 @@ class OnBoardingScreen extends StatelessWidget {
               onPressed: () {
                 pageController.previousPage(duration: const Duration(seconds: 1), curve: Curves.fastOutSlowIn);
               },
-              child: Text(AppStrings.back , style: GoogleFonts.lato(
-                        color: AppColors.lowOpacityText,
-                        fontSize: 16,
-                        ),  
+              child: Text(AppStrings.back , style: Theme.of(context).textTheme.displaySmall
                           ),
             )  : const SizedBox(height: 24,),
             ElevatedButton(
@@ -91,12 +76,9 @@ class OnBoardingScreen extends StatelessWidget {
                 : Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const HomePage() ;
                 }));
-              }, 
-              child:  Text(index != 2 ? AppStrings.next : AppStrings.getStarted , style: const TextStyle(color: AppColors.white , fontSize: 18),),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primaryColor,
-                shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(6))
-              ),
+              },
+              style: Theme.of(context).elevatedButtonTheme.style, 
+              child:  Text(index != 2 ? AppStrings.next : AppStrings.getStarted , style: Theme.of(context).textTheme.labelSmall)
                )
           ],
                         )

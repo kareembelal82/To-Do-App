@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/core/Themes/Theme.dart';
 import 'package:to_do_app/core/utils/strings.dart';
 import 'package:to_do_app/features/Auth/presentation/screens/splash_screen/splash_screen.dart';
 
@@ -8,10 +9,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
   
-    return const MaterialApp(
+    return MaterialApp(
       title: AppStrings.title,
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      theme: getTheme(),
+      home: const SplashScreen(),
     );
   }
 }
